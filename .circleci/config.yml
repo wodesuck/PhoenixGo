@@ -12,8 +12,7 @@ jobs:
 
     steps:
       - checkout
-      - run: apt-get update && apt-get install -y wget unzip g++
       - run: wget https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-installer-linux-x86_64.sh
       - run: chmod +x bazel-0.11.1-installer-linux-x86_64.sh
-      - run: ./bazel-0.11.1-installer-linux-x86_64.sh
-      - run: /usr/local/bin/bazel //mcts:mcts_main //dist:dist_zero_model_server
+      - run: ./bazel-0.11.1-installer-linux-x86_64.sh --user
+      - run: ~/bin/bazel //mcts:mcts_main //dist:dist_zero_model_server
