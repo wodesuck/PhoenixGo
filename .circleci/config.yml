@@ -5,7 +5,8 @@ jobs:
       - image: debian:stretch
     steps:
       - checkout
-      - run: apt-get update && apt-get install -y curl
-      - run: curl -O https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-installer-linux-x86_64.sh
-      - run: bash bazel-0.11.1-installer-linux-x86_64.sh --user
+      - run: apt-get update && apt-get install -y wget
+      - run: wget https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-installer-linux-x86_64.sh
+      - run: chmod +x bazel-0.11.1-installer-linux-x86_64.sh
+      - run: ./bazel-0.11.1-installer-linux-x86_64.sh
       - run: ~/bin/bazel //mcts:mcts_main //dist:dist_zero_model_server
