@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: install bazel
-        command: |
-          wget https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-installer-linux-x86_64.sh
-          chmod +x bazel-0.11.1-installer-linux-x86_64.sh
-          ./bazel-0.11.1-installer-linux-x86_64.sh --user
+          name: install bazel
+          command: |
+           wget https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-installer-linux-x86_64.sh
+           chmod +x bazel-0.11.1-installer-linux-x86_64.sh
+           ./bazel-0.11.1-installer-linux-x86_64.sh --user
       - run:
-        name: bazel build
-        command: ~/bin/bazel build //mcts:mcts_main //dist:dist_zero_model_server
+          name: bazel build
+          command: ~/bin/bazel build //mcts:mcts_main //dist:dist_zero_model_server
